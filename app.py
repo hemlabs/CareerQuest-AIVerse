@@ -73,6 +73,7 @@ def home():
     return render_template('index.html')
 
 # 1. RESUME ANALYZER
+# 1. RESUME ANALYZER (Updated for File Upload)
 @app.route('/analyze_resume', methods=['POST'])
 def analyze_resume():
     try:
@@ -123,7 +124,9 @@ def analyze_resume():
         print(f"Resume Error: {e}")
         return jsonify({"resume_stats": [1,1,1,1,1,1]})
 # 2. ARCHETYPE REPORT
+# ... existing imports ...
 
+# REPLACE THIS FUNCTION IN app.py
 @app.route('/generate_report', methods=['POST'])
 def generate_report():
     try:
@@ -282,7 +285,8 @@ def interview_chat():
 
 def open_browser():
     webbrowser.open_new('http://127.0.0.1:5000')
-# 6. JOB OFFER GENERATOR
+# 6. JOB OFFER GENERATOR (New Feature)
+# --- UPDATED: JOB MATCH GENERATOR ---
 @app.route('/get_job_offer', methods=['POST'])
 def get_job_offer():
     try:
