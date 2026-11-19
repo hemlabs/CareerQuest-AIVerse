@@ -3,3 +3,4 @@ flask-cors
 google-generativeai
 google-search-results
 PyPDF2
+python-dotenv

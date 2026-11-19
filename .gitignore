@@ -1,0 +1,27 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Generated vector DB (rebuild with: python ingest.py)
+chroma_db/
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+env/
+
+# User uploads / local data
+uploads/
+*.pdf
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
