@@ -1,6 +1,12 @@
 flask
 flask-cors
-google-generativeai
-google-search-results
+requests
 PyPDF2
+pytrends
+langchain-ollama
+langchain-community
+langchain-text-splitters
+langchain-core
+chromadb
+datasets
 python-dotenv

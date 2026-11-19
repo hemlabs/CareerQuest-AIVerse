@@ -25,7 +25,7 @@ This project is built using a "Local Brain" privacy-first architecture:
 
 **💾 Data & Memory**
 * **ChromaDB:** RAG Knowledge retrieval
-* **SQLite:** User Data storage
+* **SQLite (via ChromaDB):** Persistent vector store
 
 **🎨 Frontend & Visuals**
 * **HTML5 + TailwindCSS:** Pixel Art UI
@@ -38,9 +38,11 @@ This project is built using a "Local Brain" privacy-first architecture:
 
 ## ⚙️ Installation & Setup
 
+**Prerequisites:** Python 3.10+, [Ollama](https://ollama.com), and a free [RapidAPI](https://rapidapi.com) key subscribed to the *JSearch* and *Internships* APIs.
+
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/YOUR_USERNAME/CareerQuest-AIVerse.git](https://github.com/YOUR_USERNAME/CareerQuest-AIVerse.git)
+    git clone https://github.com/hemlabs/CareerQuest-AIVerse.git
     cd CareerQuest-AIVerse
     ```
 
@@ -49,12 +51,29 @@ This project is built using a "Local Brain" privacy-first architecture:
     pip install -r requirements.txt
     ```
 
-3.  **Run the application:**
+3.  **Pull the local model:**
+    ```bash
+    ollama pull llama3
+    ```
+
+4.  **Add your API key:**
+    Copy `.env.example` to `.env` and put your RapidAPI key in it:
+    ```bash
+    cp .env.example .env      # Windows: copy .env.example .env
+    ```
+    `.env` is git-ignored, so never commit your real key.
+
+5.  **Build the knowledge base** (one-time, downloads the job-description and interview datasets into `chroma_db/`):
+    ```bash
+    python ingest.py
+    ```
+
+6.  **Run the application:**
     ```bash
     python app.py
     ```
 
-4.  **Access the App:**
+7.  **Access the App:**
     Open your browser and navigate to `http://127.0.0.1:5000`
 
 ## 📸 Prototype Note
